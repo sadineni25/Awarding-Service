@@ -1,5 +1,6 @@
 package com.award.points.payload;
 
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -9,17 +10,15 @@ import java.util.Date;
 
 @Data
 public class TransactionDetailsDto {
-    @NotNull
-    @NotEmpty(message = "Transaction id should not be null or empty")
+    @NotEmpty(message = "transactionId should not be null or empty")
     String transactionId;
-    @NotNull
-    @NotEmpty(message = "Customer id should not be null or empty")
+    @NotEmpty(message = "customerId should not be null or empty")
     String customerId;
 
     @NotNull
     Double amount;
 
-    @NotNull
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @NotNull(message = "transactionDate should be in yyyy-MM-dd format")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date transactionDate;
 }
