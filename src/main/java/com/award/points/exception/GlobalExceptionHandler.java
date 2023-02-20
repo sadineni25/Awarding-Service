@@ -1,18 +1,15 @@
 package com.award.points.exception;
 
 import jakarta.validation.ConstraintViolationException;
-import org.springframework.http.HttpHeaders;
+import org.springframework.web.context.request.ServletWebRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConversionException;
-import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,9 +18,15 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ExceptionHandler(ConstraintViolationException.class)
     protected ResponseEntity<Object> handleMethodArgumentNotValid(ConstraintViolationException ex,
                                                                   WebRequest request) {
+        logger.error("Customer send invalid JSON body for request {}  {} error {}",
+                ((ServletWebRequest) request).getRequest().getMethod(),
+                ((ServletWebRequest) request).getRequest().getRequestURI(), ex.getMessage());
+
         Map<String, String> errors = new HashMap<>();
         ex.getConstraintViolations().stream().iterator().forEachRemaining(error -> {
             String fieldName = error.getPropertyPath().toString();
@@ -37,6 +40,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageConversionException.class)
     protected ResponseEntity<Object> handleMethodArgumentNotValid(HttpMessageConversionException ex,
                                                                   WebRequest request) {
+        logger.error("Invalid date format sent in request {}  {} error {}",
+                ((ServletWebRequest) request).getRequest().getMethod(),
+                ((ServletWebRequest) request).getRequest().getRequestURI(), ex.getMessage());
+
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
