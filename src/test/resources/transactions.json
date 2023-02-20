@@ -1,0 +1,38 @@
+[
+  {
+    "transactionId": "63f1bc6de68b4e6eadce438d",
+    "customerId": "fqapbwz",
+    "amount": 168.26,
+    "transactionDate": "2022-10-01"
+  },
+  {
+    "transactionId": "63f1bc6db812f2bf90e7f86d",
+    "customerId": "fqapbwz",
+    "amount": 199.12,
+    "transactionDate": "2022-12-29"
+  },
+  {
+    "transactionId": "63f1bc6d5292a2eb3c70daea",
+    "customerId": "bxedjxp",
+    "amount": 224.84,
+    "transactionDate": "2022-11-24"
+  },
+  {
+    "transactionId": "63f1bc6d3f5044c4bf402dc9",
+    "customerId": "hdgnmtk",
+    "amount": 185.6,
+    "transactionDate": "2022-12-06"
+  },
+  {
+    "transactionId": "63f1bc6deb04ec77cc2c7d33",
+    "customerId": "bxedjxp",
+    "amount": 203.6,
+    "transactionDate": "2022-12-05"
+  },
+  {
+    "transactionId": "63f1bc6de09e892c3209eeac",
+    "customerId": "ijqjsde",
+    "amount": 237.69,
+    "transactionDate": "2023-01-10"
+  }
+]
