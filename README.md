@@ -20,6 +20,14 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
+To run test cases use below command
+
+```shell
+mvn test
+```
+
+To run/test project using mvn first move to project root directory then run above commands
+
 
 # REST API
 
