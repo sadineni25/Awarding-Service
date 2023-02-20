@@ -15,13 +15,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * GlobalExceptionHandler is custom handler class to handle all exceptions throw in this application.
+ *
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+     * Logger to log messages to console and log file.
+     */
     Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+    /**
+     * Handler to parse json filed validation exception
+     *
+     * @param  ex       Constraint violation exception on filed in requested json
+     * @Param  request  received request
+     * @return          Customised response after filtering un-necessary content.
+     */
     @ExceptionHandler(ConstraintViolationException.class)
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(ConstraintViolationException ex,
+    protected ResponseEntity<Object> constraintViolationException(ConstraintViolationException ex,
                                                                   WebRequest request) {
         logger.error("Customer send invalid JSON body for request {}  {} error {}",
                 ((ServletWebRequest) request).getRequest().getMethod(),
@@ -37,8 +51,15 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Handler to parse transaction date parse exception.
+     *
+     * @param  ex       transaction date parse exception
+     * @Param  request  received request
+     * @return          Customised response after filtering un-necessary content.
+     */
     @ExceptionHandler(HttpMessageConversionException.class)
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(HttpMessageConversionException ex,
+    protected ResponseEntity<Object> httpMessageConversionException(HttpMessageConversionException ex,
                                                                   WebRequest request) {
         logger.error("Invalid date format sent in request {}  {} error {}",
                 ((ServletWebRequest) request).getRequest().getMethod(),

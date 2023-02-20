@@ -8,6 +8,10 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * TransactionDetails data transfer object to communicate via REST calls
+ *
+ */
 @Data
 public class TransactionDetailsDto {
     @NotEmpty(message = "transactionId should not be null or empty")

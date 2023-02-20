@@ -12,12 +12,26 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * RewardService impl class to handle reward calculation logic.
+ *
+ */
 @Service
 public class RewardServiceImpl implements RewardService {
 
+    /**
+     * Logger to log messages to console and log file.
+     */
     Logger logger = LoggerFactory.getLogger(RewardServiceImpl.class);
 
 
+    /**
+     * Calculate reward points for all customers exists in given transactions.
+     *
+     * @param  transactionDetails   list of transactions
+     * @Param  customerId           customer id
+     * @return                      total reward points earned for given customer.
+     */
     @Override
     public Long calculateRewardPoints(List<TransactionDetailsDto> transactionDetails, String customerId) {
         Long rewardPoints = 0L;
@@ -41,6 +55,14 @@ public class RewardServiceImpl implements RewardService {
         return rewardPoints;
     }
 
+    /**
+     * Calculate reward points for all customers exists in given transactions.
+     *
+     * @param  transactionDetails   list of transactions
+     * @param  customerId           customer id
+     * @param  monthAndYear                month and year as string
+     * @return                      reward points earned for given customer on given month and year.
+     */
     @Override
     public Long calculateRewardPointsForMonth(List<TransactionDetailsDto> transactionDetails,
                                               String customerId,
@@ -70,6 +92,12 @@ public class RewardServiceImpl implements RewardService {
     }
 
 
+    /**
+     * Calculate reward points for all customers exists in given transactions.
+     *
+     * @param  transactionDetails   list of transactions
+     * @return                      reward points earned for each customer per month and total.
+     */
     @Override
     public List<RewardPointsDto> getEachCustomerRewardPoints(List<TransactionDetailsDto> transactionDetails) {
 
