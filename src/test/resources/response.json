@@ -1,0 +1,50 @@
+[
+  {
+    "customerId": "ijqjsde",
+    "totalRewardPoints": 324,
+    "monthlyRewardPoints": [
+      {
+        "month": "JANUARY 2023",
+        "rewardPoints": 324
+      }
+    ]
+  },
+  {
+    "customerId": "fqapbwz",
+    "totalRewardPoints": 434,
+    "monthlyRewardPoints": [
+      {
+        "month": "OCTOBER 2022",
+        "rewardPoints": 186
+      },
+      {
+        "month": "DECEMBER 2022",
+        "rewardPoints": 248
+      }
+    ]
+  },
+  {
+    "customerId": "hdgnmtk",
+    "totalRewardPoints": 220,
+    "monthlyRewardPoints": [
+      {
+        "month": "DECEMBER 2022",
+        "rewardPoints": 220
+      }
+    ]
+  },
+  {
+    "customerId": "bxedjxp",
+    "totalRewardPoints": 554,
+    "monthlyRewardPoints": [
+      {
+        "month": "NOVEMBER 2022",
+        "rewardPoints": 298
+      },
+      {
+        "month": "DECEMBER 2022",
+        "rewardPoints": 256
+      }
+    ]
+  }
+]
